@@ -1,15 +1,24 @@
 package router
 
 import (
+	"log"
 	"os"
 
 	"github.com/anirudhmpai/albums"
 	"github.com/anirudhmpai/users"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 func Router() *gin.Engine {
 	// gin.SetMode(gin.ReleaseMode)
+	// load .env file
+	err := godotenv.Load()
+
+	if err != nil {
+		log.Fatalf("Error loading .env file")
+	}
+
 	router := gin.Default()
 
 	router.GET("/albums", albums.GetAlbums)

@@ -1,20 +1,10 @@
 package main
 
 import (
-	"log"
-
 	"github.com/anirudhmpai/router"
-	"github.com/joho/godotenv"
 )
 
 func main() {
-	// load .env file
-	err := godotenv.Load()
-
-	if err != nil {
-		log.Fatalf("Error loading .env file")
-	}
-
 	// r :=
 	router.Router()
 
