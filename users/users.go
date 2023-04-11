@@ -259,7 +259,7 @@ func updateUser(id int64, user User) int64 {
 	defer db.Close()
 
 	// create the update sql query
-	sqlStatement := `UPDATE users SET name=$2, email=$3, age=$4 WHERE userid=$1`
+	sqlStatement := `UPDATE users SET name=$2, email=$3, age=$4 WHERE id=$1`
 
 	// execute the sql statement
 	res, err := db.Exec(sqlStatement, id, user.Name, user.Email, user.Age)
@@ -290,7 +290,7 @@ func deleteUser(id int64) int64 {
 	defer db.Close()
 
 	// create the delete sql query
-	sqlStatement := `DELETE FROM users WHERE userid=$1`
+	sqlStatement := `DELETE FROM users WHERE id=$1`
 
 	// execute the sql statement
 	res, err := db.Exec(sqlStatement, id)
