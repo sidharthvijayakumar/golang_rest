@@ -11,7 +11,6 @@ import (
 )
 
 func main() {
-	r := router.Router()
 	// load .env file
 	err := godotenv.Load(".env")
 
@@ -19,6 +18,8 @@ func main() {
 		log.Fatalf("Error loading .env file")
 	}
 
+	r := router.Router()
+
 	fmt.Println("Starting server on the port " + os.Getenv("PORT") + "...")
-	log.Fatal(http.ListenAndServe("0.0.0.0:"+os.Getenv("PORT"), r))
+	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), r))
 }

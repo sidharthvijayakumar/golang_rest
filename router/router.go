@@ -1,13 +1,15 @@
 package router
 
 import (
+	"os"
+
 	"github.com/anirudhmpai/albums"
 	"github.com/anirudhmpai/users"
 	"github.com/gin-gonic/gin"
 )
 
 func Router() *gin.Engine {
-	gin.SetMode(gin.ReleaseMode)
+	// gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 
 	router.GET("/albums", albums.GetAlbums)
@@ -21,7 +23,7 @@ func Router() *gin.Engine {
 	router.PUT("/api/user/:id", users.UpdateUser)
 	router.DELETE("/api/delete-user/:id", users.DeleteUser)
 
-	// router.Run("localhost:8080")
+	router.Run(":" + os.Getenv("PORT"))
 
 	return router
 }
