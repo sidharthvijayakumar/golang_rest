@@ -8,3 +8,8 @@ curl http://localhost:8080/api/new-user \
 curl http://localhost:8080/api/user
 
 curl http://localhost:8080/api/user/1
+
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
