@@ -7,6 +7,7 @@ import (
 )
 
 func Router() *gin.Engine {
+	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 
 	router.GET("/albums", albums.GetAlbums)
