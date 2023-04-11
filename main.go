@@ -1,16 +1,16 @@
 package main
 
 import (
-	"github.com/anirudhmpai/albums"
+	"fmt"
+	"log"
+	"net/http"
 
-	"github.com/gin-gonic/gin"
+	"github.com/anirudhmpai/router"
 )
 
 func main() {
-	router := gin.Default()
-	router.GET("/albums", albums.GetAlbums)
-	router.GET("/albums/:id", albums.GetAlbumByID)
-	router.POST("/albums", albums.PostAlbums)
-	router.DELETE("/albums/:id", albums.DeleteAlbumByID)
-	router.Run("localhost:8083")
+	r := router.Router()
+	fmt.Println("Starting server on the port 8080...")
+
+	log.Fatal(http.ListenAndServe(":8080", r))
 }

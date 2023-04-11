@@ -1,0 +1,10 @@
+
+curl http://localhost:8080/api/new-user \
+    --include \
+    --header "Content-Type: application/json" \
+    --request "POST" \
+    --data '{"name": "Libin Mathew","email": "libin.m@ileafsolutions.net","age": 32}'
+
+curl http://localhost:8080/api/user
+
+curl http://localhost:8080/api/user/1
