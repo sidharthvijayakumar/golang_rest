@@ -12,7 +12,6 @@ import (
 
 func main() {
 	r := router.Router()
-
 	// load .env file
 	err := godotenv.Load(".env")
 
