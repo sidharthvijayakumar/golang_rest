@@ -16,7 +16,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Error loading .env file")
 	}
-	
+
 	r := router.Router()
 
 	fmt.Println("Starting server on the port " + os.Getenv("PORT") + "...")
