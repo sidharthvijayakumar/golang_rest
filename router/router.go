@@ -2,7 +2,6 @@ package router
 
 import (
 	"log"
-	"os"
 
 	"github.com/anirudhmpai/albums"
 	"github.com/anirudhmpai/users"
@@ -32,6 +31,6 @@ func Router() *gin.Engine {
 	router.PUT("/api/user/:id", users.UpdateUser)
 	router.DELETE("/api/delete-user/:id", users.DeleteUser)
 
-	router.Run(":" + os.Getenv("PORT"))
+	// router.Run(":" + os.Getenv("PORT"))
 	return router
 }
