@@ -20,7 +20,7 @@ func Router() *gin.Engine {
 	router.PUT("/api/user/:id", users.UpdateUser)
 	router.DELETE("/api/delete-user/:id", users.DeleteUser)
 
-	router.Run("https://golangrest.up.railway.app:8080")
+	router.Run("golangrest.up.railway.app")
 
 	return router
 }
