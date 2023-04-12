@@ -19,6 +19,7 @@ func Router() *gin.Engine {
 	}
 
 	router := gin.Default()
+	router.SetTrustedProxies(nil)
 
 	router.GET("/albums", albums.GetAlbums)
 	router.GET("/albums/:id", albums.GetAlbumByID)
@@ -30,9 +31,6 @@ func Router() *gin.Engine {
 	router.POST("/api/new-user", users.CreateUser)
 	router.PUT("/api/user/:id", users.UpdateUser)
 	router.DELETE("/api/delete-user/:id", users.DeleteUser)
-
-	//auth
-	
 
 	// router.Run(":" + os.Getenv("PORT"))
 

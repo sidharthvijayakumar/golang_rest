@@ -24,7 +24,6 @@ func CreateConnection() *sql.DB {
 	if err != nil {
 		panic(err)
 	}
-
 	// check the connection
 	err = db.Ping()
 

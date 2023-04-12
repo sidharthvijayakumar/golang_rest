@@ -16,7 +16,7 @@ import (
 	_ "github.com/lib/pq" // postgres golang driver
 )
 
-// CreateUser create a user in the postgres db
+// ? CreateUser create a user in the postgres db
 func CreateUser(c *gin.Context) {
 
 	// create an empty user of type User
@@ -42,7 +42,7 @@ func CreateUser(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, res)
 }
 
-// GetUser will return a single user by its id
+// ? GetUser will return a single user by its id
 func GetUser(c *gin.Context) {
 	// get the userid from the request params, key is "id"
 	param := c.Param("id")
@@ -62,7 +62,7 @@ func GetUser(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, user)
 }
 
-// GetAllUser will return all the users
+// ? GetAllUser will return all the users
 func GetAllUser(c *gin.Context) {
 
 	// get all the users in the db
@@ -76,7 +76,7 @@ func GetAllUser(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, users)
 }
 
-// UpdateUser update user's detail in the postgres db
+// ? UpdateUser update user's detail in the postgres db
 func UpdateUser(c *gin.Context) {
 
 	// get the userid from the request params, key is "id"
@@ -114,7 +114,7 @@ func UpdateUser(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, res)
 }
 
-// DeleteUser delete user's detail in the postgres db
+// ? DeleteUser delete user's detail in the postgres db
 func DeleteUser(c *gin.Context) {
 
 	// get the userid from the request params, key is "id"
@@ -132,7 +132,7 @@ func DeleteUser(c *gin.Context) {
 	// format the message string
 	msg := fmt.Sprintf("User updated successfully. Total rows/record affected %v", deletedRows)
 
-	// format the reponse message
+	// format the response message
 	res := middleware.Response{
 		ID:      int64(id),
 		Message: msg,
@@ -143,7 +143,7 @@ func DeleteUser(c *gin.Context) {
 }
 
 // ------------------------- handler functions ----------------
-// insert one user in the DB
+// ? insert one user in the DB
 func insertUser(user User) int64 {
 
 	// create the postgres db connection
@@ -173,7 +173,7 @@ func insertUser(user User) int64 {
 	return id
 }
 
-// get one user from the DB by its userid
+// ? get one user from the DB by its userid
 func getUser(id int64) (User, error) {
 	// create the postgres db connection
 	db := database.CreateConnection()
@@ -207,7 +207,7 @@ func getUser(id int64) (User, error) {
 	return user, err
 }
 
-// get one user from the DB by its userid
+// ? get one user from the DB by its userid
 func getAllUsers() ([]User, error) {
 	// create the postgres db connection
 	db := database.CreateConnection()
@@ -250,7 +250,7 @@ func getAllUsers() ([]User, error) {
 	return usersData, err
 }
 
-// update user in the DB
+// ? update user in the DB
 func updateUser(id int64, user User) int64 {
 
 	// create the postgres db connection
@@ -281,7 +281,7 @@ func updateUser(id int64, user User) int64 {
 	return rowsAffected
 }
 
-// delete user in the DB
+// ? delete user in the DB
 func deleteUser(id int64) int64 {
 
 	// create the postgres db connection
