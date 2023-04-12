@@ -13,8 +13,7 @@ func CreateToken(ttl time.Duration, payload interface{}, privateKey string) (str
 	if err != nil {
 		return "", fmt.Errorf("could not decode key: %w", err)
 	}
-	key, err := jwt.ParseRSAPrivateKeyFromPEM(decodedPrivateKey)
-
+	key, err := jwt.ParseRSAPrivateKeyFromPEM([]byte(decodedPrivateKey))
 	if err != nil {
 		return "", fmt.Errorf("create: parse key: %w", err)
 	}
@@ -42,7 +41,7 @@ func ValidateToken(token string, publicKey string) (interface{}, error) {
 		return nil, fmt.Errorf("could not decode: %w", err)
 	}
 
-	key, err := jwt.ParseRSAPublicKeyFromPEM(decodedPublicKey)
+	key, err := jwt.ParseRSAPublicKeyFromPEM([]byte(decodedPublicKey))
 
 	if err != nil {
 		return "", fmt.Errorf("validate: parse key: %w", err)
