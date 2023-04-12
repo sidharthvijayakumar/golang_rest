@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"strconv" // package used to covert string into int type
 
+	"github.com/anirudhmpai/database"
 	"github.com/anirudhmpai/middleware"
 	"github.com/gin-gonic/gin"
 
@@ -146,7 +147,7 @@ func DeleteUser(c *gin.Context) {
 func insertUser(user User) int64 {
 
 	// create the postgres db connection
-	db := middleware.CreateConnection()
+	db := database.CreateConnection()
 
 	// close the db connection
 	defer db.Close()
@@ -175,7 +176,7 @@ func insertUser(user User) int64 {
 // get one user from the DB by its userid
 func getUser(id int64) (User, error) {
 	// create the postgres db connection
-	db := middleware.CreateConnection()
+	db := database.CreateConnection()
 
 	// close the db connection
 	defer db.Close()
@@ -209,7 +210,7 @@ func getUser(id int64) (User, error) {
 // get one user from the DB by its userid
 func getAllUsers() ([]User, error) {
 	// create the postgres db connection
-	db := middleware.CreateConnection()
+	db := database.CreateConnection()
 
 	// close the db connection
 	defer db.Close()
@@ -253,7 +254,7 @@ func getAllUsers() ([]User, error) {
 func updateUser(id int64, user User) int64 {
 
 	// create the postgres db connection
-	db := middleware.CreateConnection()
+	db := database.CreateConnection()
 
 	// close the db connection
 	defer db.Close()
@@ -284,7 +285,7 @@ func updateUser(id int64, user User) int64 {
 func deleteUser(id int64) int64 {
 
 	// create the postgres db connection
-	db := middleware.CreateConnection()
+	db := database.CreateConnection()
 
 	// close the db connection
 	defer db.Close()
