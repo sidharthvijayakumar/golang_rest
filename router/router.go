@@ -31,6 +31,9 @@ func Router() *gin.Engine {
 	router.PUT("/api/user/:id", users.UpdateUser)
 	router.DELETE("/api/delete-user/:id", users.DeleteUser)
 
+	//auth
+	
+
 	// router.Run(":" + os.Getenv("PORT"))
 
 	return router
