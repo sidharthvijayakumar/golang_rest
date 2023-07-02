@@ -1,0 +1,20 @@
+name: Continous Integration for Node app
+
+on:
+  push:
+    branches:
+      - 'dockerfile-integration'
+jobs:
+  continous-Integration-to-build-and-push:
+    runs-on: self-hosted
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v2
+
+      - name: Build and push the Golang Docker image
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          context: .
+          push: true
+          tags: sidharthpai/golang_rest:${{ github.sha }}
+          labels: ${{ steps.meta.outputs.labels }}
