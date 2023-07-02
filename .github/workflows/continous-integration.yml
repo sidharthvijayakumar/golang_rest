@@ -6,7 +6,7 @@ on:
       - 'dockerfile-integration'
 jobs:
   continous-Integration-to-build-and-push:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Code checkout
         uses: actions/checkout@v2
