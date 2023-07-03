@@ -3,7 +3,7 @@ name: Continous Integration for Node app
 on:
   push:
     branches:
-      - '*
+      - '*'
 jobs:
   continous-Integration-to-build-and-push:
     runs-on: ubuntu-latest
