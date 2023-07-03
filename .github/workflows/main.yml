@@ -4,7 +4,7 @@ name: Continous Integration for Node app
 on:
   push:
     branches:
-      - 'dockerfile-integration'
+      - '*'
 jobs:
   continous-Integration-to-build-and-push:
     runs-on: ubuntu-latest
